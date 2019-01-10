@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+    //- check whether a 'student' has posted name
+    //- if name has been POST-ed, display welcome name
+    //- else prompt user to input name
+    if name
+        h2 Welcome, #{name}!
+    else
+        form(action="/hello", method="post")
+            label(for="username") Please enter your name:
+            input#username(type="text", name="username")
+            button(type="submit") Submit
